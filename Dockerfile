@@ -1,11 +1,4 @@
 FROM eclipse-temurin:21-jdk
-
-WORKDIR /app
-
-COPY . .
-
-RUN ./mvnw clean package -DskipTests
-
 EXPOSE 8080
-
-CMD ["java", "-jar", "target/truchivastragruh-0.0.1-SNAPSHOT.jar"]
+ADD target/docker-springboot.jar docker-springboot.jar
+ENTRYPOINT ["java","-jar","/docker-springboot.jar"]
